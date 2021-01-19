@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+{# {% block script %} <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  <script>tinymce.init({selector:'textarea'});</script>{% endblock %} #}
+
+{% block body %}
+
+<h1>{% if editMode %}
+        Modification de l'éleve {{eleve.nom}} {{eleve.prenom}}
+    {% else %}
+        Ajouter l' eleve
+    {% endif %}
+</h1>
+
+{{ form_start(formEleve) }}
+
+{# form_row permet de specifier le label, le champ et les erreurs#}
+{{ form_row(formEleve.nom, {'attr' : {'placeholder': "nom de l'eleve"}}) }}
+{{ form_row(formEleve.prenom, {'attr' :{'placeholder':"prenom de l'eleve "}}) }}
+{{ form_row(formEleve.dateNaissance, {'label' :"date de naissance"}) }}
+{{ form_row(formEleve.moyenne, {'label' :"moyenne de l'éleve",'attr' :{'placeholder': "moyenne"}}) }}
+{{ form_row(formEleve.appreciation, {'attr' :{'placeholder': "appreciation"}}) }}
+{{ form_row(formEleve.classe)}}
+
+
+
+<button type="submit" class="btn btn-success">
+    {% if editMode %}
+        Enregistrer
+    {% else %}
+        Ajouter l' eleve
+    {% endif %}
+
+</button>
+
+{{ form_end(formEleve) }}
+
+{% endblock %}
+

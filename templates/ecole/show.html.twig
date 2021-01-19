@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+        
+           <p><h3>{{eleve.nom}}{{eleve.prenom}}</p><h3>
+            <h4>né(e) le<div class="metadata">{{eleve.dateNaissance | date('d/m/Y') }} se trouve dans la classe {{ eleve.classe.name }}</div></h4>
+           <h4>la moyenne est de {{eleve.moyenne}} sur 20</h4>
+        
+        <h3>Appreciation détaillée</h3>
+        <p>{{eleve.appreciation}}</p>
+
+{% endblock %}
+
+ 

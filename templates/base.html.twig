@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}ECOLE{% endblock %}</title>
+        <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
+        {% block stylesheets %}{% endblock %}
+        {% block script %}{% endblock %}
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="{{ path('home') }}" _msthash="1453933" _msttexthash="75387">Ecole</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" _msthidden="A" _msthiddenattr="1374854" _mstaria-label="320099">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+
+         <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+         <li class="nav-item ">
+        <a class="nav-link" href="#"><font _mstmutation="1" _msthash="573742" _msttexthash="92079">Eleves </font><span class="sr-only" _msthash="869765" _msttexthash="98592">(actuel)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ path('eleve_create') }}">Ajouter un eleve</a>
+      </li>
+      
+    </ul>
+  </div>
+</nav>
+<div class="container">
+        {% block body %}{% endblock %}
+</div>        
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

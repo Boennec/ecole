@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} LISTE ELEVES
+{% endblock %}
+
+{% block body %}
+
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th scope="row" _msthash="2588638" _msttexthash="76063">nom</th>
+				<th _msthash="2586090" _msttexthash="383591">prenom</th>
+				<th _msthash="2586974" _msttexthash="383591">date de naissance</th>
+				<th _msthash="2587858" _msttexthash="383591">moyenne</th>
+				<th colspan=2></th>
+			</tr>
+		</thead>
+		<tbody>
+		{% set sum = 0 %}
+		{% set i = 0 %}
+		{% set moy = 0 %}
+			{% for eleve in eleves %}
+				{# pour chaque eleve dans le tableau des eleves ; eleve se créé au moment du for, eleves a été créé dans twig#}
+				<tr>
+					<td><a href="{{ path('eleve_show', {'id':eleve.id}) }}">{{ eleve.nom }}</a></td>
+					<td>{{ eleve.prenom }}</td>
+					<td>{{eleve.dateNaissance | date('d/m/Y') }}</td>
+					<td>{{eleve.moyenne}}</td>
+					<td>{{eleve.classe.name}}</td>
+					<td><a class="btn btn-primary" href={{ path('eleve_edit', {'id':eleve.id}) }}>modifier</a></td>
+					<td><a class="btn btn-warning" href={{ path('eleve_delete', {'id':eleve.id}) }}>supprimer</a></td>
+
+					{% if  eleves is not empty  %}
+						{% set sum = sum + eleve.moyenne %}
+						{% set i = i+1 %}
+						{% set moy = sum/ i %}
+					{% endif %}
+				</tr>
+			{% endfor %}
+								<p>la moyenne de la classe est: {{ moy |number_format(2, '.', ',') }}</p> 
+	
+		</tbody>
+	</table>
+{% endblock %}

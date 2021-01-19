@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h1>Bienvenue sur le site de l'école</h1>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio repellendus nostrum necessitatibus consectetur 
+cumque incidunt veniam deserunt, quas minus itaque animi laboriosam provident saepe voluptatibus? 
+Asperiores, iure. Voluptatem blanditiis soluta et, enim asperiores similique, veniam fuga quis, vero labore sed.</p>
+<p>Tenetur sapiente veritatis culpa adipisci voluptatum sed. Illum corrupti quo voluptatum, quia cumque et quae
+ quod distinctio consectetur magnam similique quisquam nulla animi quidem eos quis? Amet ipsum vero rem, 
+ quo vitae blanditiis quaerat deserunt eum perspiciatis facere exercitationem quia.</p>
+
+
+{% for classe in classes %}
+
+  	<a href="{{ path('ecole', {'id':classe.id})}}"  class="btn btn-primary">{{ classe.name }}</a>
+
+{% endfor %}
+  
+ {% endblock %}
